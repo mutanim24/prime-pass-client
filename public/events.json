@@ -1,0 +1,184 @@
+[
+    {
+        "title": "Rock Concert",
+        "description": "A high-energy rock concert featuring popular bands. Join us for an unforgettable night filled with electrifying performances, stunning visuals, and a vibrant atmosphere. Whether you're a longtime fan of rock music or new to the genre, this concert promises to deliver an experience that will leave you buzzing with excitement. Expect to hear a mix of classic hits and new releases, all performed live by some of the biggest names in rock. Don't miss out on the chance to be part of this spectacular event! Enjoy gourmet food stalls, exclusive merchandise, and meet-and-greet opportunities with the artists. The event will also feature special effects and stage designs that will make the night truly magical.",
+        "date": "2024-07-20",
+        "start_time": "19:00",
+        "end_time": "23:00",
+        "venue": "Madison Square Garden, New York",
+        "available_tickets": 150,
+        "ticket_price": 75.00,
+        "image_url": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "event_steps": [
+            {
+                "time": "19:00",
+                "activity": "Doors Open"
+            },
+            {
+                "time": "19:30",
+                "activity": "Opening Act"
+            },
+            {
+                "time": "20:30",
+                "activity": "Main Performance"
+            },
+            {
+                "time": "22:30",
+                "activity": "Encore"
+            }
+        ]
+    },
+    {
+        "title": "Classical Music Evening",
+        "description": "An evening of classical music with a renowned orchestra. Immerse yourself in the timeless beauty of classical compositions, performed by some of the most talented musicians in the world. The evening will feature a carefully curated selection of pieces from the great composers, providing a rich tapestry of sound that will enchant and inspire. The concert hall offers an acoustically perfect setting, ensuring that every note resonates with clarity and emotion. In addition to the music, enjoy the elegant ambiance of the venue, complete with stunning architecture and refined decor. This event is perfect for classical music aficionados and newcomers alike.",
+        "date": "2024-08-05",
+        "start_time": "18:00",
+        "end_time": "21:00",
+        "venue": "Carnegie Hall, New York",
+        "available_tickets": 200,
+        "ticket_price": 50.00,
+        "image_url": "https://www.alliedmarketresearch.com/blog/Blog_banner_image/ctoykrzsmv.jpeg",
+        "event_steps": [
+            {
+                "time": "18:00",
+                "activity": "Doors Open"
+            },
+            {
+                "time": "18:30",
+                "activity": "Introduction by Conductor"
+            },
+            {
+                "time": "19:00",
+                "activity": "First Movement"
+            },
+            {
+                "time": "20:00",
+                "activity": "Intermission"
+            },
+            {
+                "time": "20:15",
+                "activity": "Second Movement"
+            }
+        ]
+    },
+    {
+        "title": "Stand-up Comedy Night",
+        "description": "Laugh out loud with top stand-up comedians. Enjoy a night filled with humor, wit, and satire as some of the best comedians take the stage to deliver their most hilarious routines. This comedy night promises to bring joy and laughter, with a variety of comedic styles that cater to all tastes. The intimate setting of the Comedy Cellar creates a perfect atmosphere for a night of fun and entertainment. Between the performances, guests can enjoy a selection of drinks and light snacks. It's the perfect way to unwind and enjoy a night out with friends or family.",
+        "date": "2024-07-15",
+        "start_time": "20:00",
+        "end_time": "23:00",
+        "venue": "Comedy Cellar, New York",
+        "available_tickets": 100,
+        "ticket_price": 30.00,
+        "image_url": "https://img.freepik.com/premium-psd/stand-up-comedy-event-poster-with-shades-red-color_69464-3612.jpg",
+        "event_steps": [
+            {
+                "time": "20:00",
+                "activity": "Doors Open"
+            },
+            {
+                "time": "20:30",
+                "activity": "Opening Comedian"
+            },
+            {
+                "time": "21:00",
+                "activity": "Feature Act"
+            },
+            {
+                "time": "22:00",
+                "activity": "Headliner Performance"
+            }
+        ]
+    },
+    {
+        "title": "Broadway Musical",
+        "description": "Experience the magic of Broadway with this hit musical. Witness an incredible live performance featuring a stellar cast, breathtaking sets, and unforgettable musical numbers. The show combines drama, romance, and comedy, all set to a powerful and moving score. Broadway musicals are known for their high production values, and this show is no exception. From the dazzling costumes to the intricate choreography, every aspect of the production is designed to provide a spectacular experience. Arrive early to enjoy a pre-show reception with complimentary drinks and appetizers.",
+        "date": "2024-07-25",
+        "start_time": "19:30",
+        "end_time": "22:30",
+        "venue": "Broadway Theatre, New York",
+        "available_tickets": 180,
+        "ticket_price": 120.00,
+        "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMThTeW2OifLLhVF_1C5hPEHEiwJ2cnRrCRA&s",
+        "event_steps": [
+            {
+                "time": "19:30",
+                "activity": "Doors Open"
+            },
+            {
+                "time": "20:00",
+                "activity": "Act One"
+            },
+            {
+                "time": "21:00",
+                "activity": "Intermission"
+            },
+            {
+                "time": "21:15",
+                "activity": "Act Two"
+            },
+            {
+                "time": "22:15",
+                "activity": "Curtain Call"
+            }
+        ]
+    },
+    {
+        "title": "Food Festival",
+        "description": "Taste delicious food from around the world. Join us for a culinary adventure that brings together the best flavors and dishes from different cultures. The food festival features a wide range of food stalls and trucks, each offering unique and mouth-watering treats. In addition to the food, enjoy live music, cooking demonstrations by top chefs, and interactive workshops where you can learn new cooking techniques. This event is perfect for food lovers and families looking for a fun day out. Sample exotic dishes, enjoy gourmet treats, and discover new favorite foods.",
+        "date": "2024-08-12",
+        "start_time": "11:00",
+        "end_time": "17:00",
+        "venue": "Central Park, New York",
+        "available_tickets": 300,
+        "ticket_price": 20.00,
+        "image_url": "https://c8.alamy.com/comp/JEFJHX/food-festival-of-different-cultures-torremolinos-andalusia-spain-JEFJHX.jpg",
+        "event_steps": [
+            {
+                "time": "11:00",
+                "activity": "Festival Opens"
+            },
+            {
+                "time": "12:00",
+                "activity": "Live Cooking Demonstration"
+            },
+            {
+                "time": "13:30",
+                "activity": "Cooking Workshop"
+            },
+            {
+                "time": "15:00",
+                "activity": "Live Music Performance"
+            }
+        ]
+    },
+    {
+        "title": "Art Exhibition",
+        "description": "A showcase of contemporary art from various artists. Explore a diverse collection of artworks, including paintings, sculptures, installations, and multimedia pieces. This exhibition brings together a wide range of styles and techniques, offering a unique perspective on contemporary art. The Metropolitan Museum of Art provides a stunning backdrop for this exhibition, with its grand halls and beautiful architecture. In addition to the artworks, the exhibition features guided tours, artist talks, and interactive sessions where visitors can engage with the artists and learn more about their creative processes.",
+        "date": "2024-07-22",
+        "start_time": "10:00",
+        "end_time": "18:00",
+        "venue": "Metropolitan Museum of Art, New York",
+        "available_tickets": 250,
+        "ticket_price": 15.00,
+        "image_url": "https://www.re-thinkingthefuture.com/wp-content/uploads/2022/10/A8291-What-is-the-purpose-and-importance-of-an-art-exhibition-Image-2.jpg",
+        "event_steps": [
+            {
+                "time": "10:00",
+                "activity": "Exhibition Opens"
+            },
+            {
+                "time": "11:00",
+                "activity": "Guided Tour"
+            },
+            {
+                "time": "13:00",
+                "activity": "Artist Talk"
+            },
+            {
+                "time": "15:00",
+                "activity": "Interactive Session"
+            }
+        ]
+    }
+]
