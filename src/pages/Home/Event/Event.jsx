@@ -6,7 +6,7 @@ const Event = () => {
 
     const [events, setEvents] = useState([])
 
-    fetch("http://localhost:5000/events")
+    fetch("https://prime-pass-server.vercel.app/events")
     .then(result => result.json())
     .then(data => setEvents(data))
     return (

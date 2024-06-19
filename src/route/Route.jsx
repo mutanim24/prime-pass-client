@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         {
             path: '/events-details/:id',
             element: <DetailsPage></DetailsPage>,
-            loader: ({params}) => fetch(`http://localhost:5000/events/${params.id}`)
+            loader: ({params}) => fetch(`https://prime-pass-server.vercel.app/events/${params.id}`)
         }
       ]
     },
