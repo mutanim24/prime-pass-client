@@ -1,8 +1,21 @@
 import { Avatar, Button, Divider, Icon, Input, Sidebar } from 'keep-react';
 import { ArchiveTray, Chat, Gear, List, MagnifyingGlass, ShoppingCart, SignIn, SquaresFour, Users } from 'phosphor-react';
 import { Link, Outlet } from 'react-router-dom';
+import Footer from '../shared/Footer';
+import { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Main = () => {
+    const {user, logOut} = useContext(AuthContext)
+    const handleLogout = async () => {
+        logOut()
+        .then(result => {
+            console.log(result);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
     return (
         <div className='flex'>
             <div className='w-2/12 h-screen sticky top-0'>
@@ -47,9 +60,9 @@ const Main = () => {
                             <Gear size={24} />
                             <Link to="/sign-up">Sign Up</Link>
                         </Sidebar.Item>
-                        <Sidebar.Item>
+                        <Sidebar.Item className='cursor-pointer' onClick={handleLogout}>
                             <Users size={24} />
-                            Users
+                            Log Out
                         </Sidebar.Item>
                         <Sidebar.Item>
                             <SignIn size={24} />
@@ -59,10 +72,10 @@ const Main = () => {
                     <Divider className="my-3" />
                     <Sidebar.Footer className="flex items-center gap-2">
                         <div>
-                            <Avatar shape="circle" img="/images/avatar/avatar-3.png" />
+                            {user && <Avatar shape="circle" img={user.photoURL} />}
                         </div>
                         <div>
-                            <p className="mb-0 text-body-3 font-medium text-metal-600">Md Tanim</p>
+                            {user && <p className="mb-0 text-body-3 font-medium text-metal-600">{user.displayName}</p>}
                             <p className="text-body-4 font-normal text-metal-400">Web Developer</p>
                         </div>
                     </Sidebar.Footer>
@@ -71,6 +84,7 @@ const Main = () => {
             </div>
             <div className='w-10/12 p-8'>
                 <Outlet></Outlet>
+                {/* <Footer></Footer> */}
             </div>
 
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Banner from './Banner';
 import { Button, Divider, Steps } from 'keep-react';
-import { Bank, Calendar, Clock } from 'phosphor-react';
+import { Bank, Calendar, CalendarCheck, Clock } from 'phosphor-react';
 
 const DetailsPage = () => {
     const event = useLoaderData();
@@ -14,15 +14,18 @@ const DetailsPage = () => {
             <Banner image={image_url} title={title}></Banner>
             <div className='py-5 space-y-3'>
                 {/* <h1 className='text-3xl font-bold'>{title}</h1> */}
-                <Divider variant="start" className='text-3xl font-bold'>{title}</Divider>
-                <p>{date} @{start_time} - {end_time}</p>
+                <Divider variant="start" className='text-3xl font-bold font-serif'>{title}</Divider>
+                <div className='flex gap-3'>
+                    <CalendarCheck color='green' size={25}></CalendarCheck>
+                    <p className='font-serif'>{date} @{start_time} - {end_time}</p>
+                </div>
                 <h3 className='bg-green-700 inline-block font-bold py-2 px-4 text-xl text-white rounded-full'>Price: ${ticket_price}</h3>
                 <p>{description}</p>
 
             </div>
             <div className='py-8'>
                 <section className="space-y-3 mb-7">
-                    <Divider variant="center" className='text-4xl font-bold'>Event Schedule</Divider>
+                    <Divider variant="center" className='text-4xl font-bold font-serif'>Event Schedule</Divider>
                 </section>
 
                 <Steps stepType="number">
@@ -73,8 +76,8 @@ const DetailsPage = () => {
                         {venue}
                     </div>
                 </div>
-            </div>
             <Button className='w-full mt-4' color="success">Book Now</Button>
+            </div>
         </div>
     );
 };

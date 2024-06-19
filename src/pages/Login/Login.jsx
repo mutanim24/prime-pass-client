@@ -4,17 +4,27 @@ import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
-    const { googleLogin } = useContext(AuthContext);
+    const { googleLogin, facebookLogin, setUser } = useContext(AuthContext);
 
     const handleGoogleLogin = () => {
-
         googleLogin()
             .then(result => {
-                console.log(result);
+                setUser(result.user)
+                console.log(result.user);
             })
             .catch(err => {
                 console.log(err.message);
             });
+    }
+
+    const handleFacebookLogin = () => {
+        facebookLogin()
+        .then(result => {
+            console.log(result);
+        })
+        .catch(err => {
+            console.log(err.message);
+        })
     }
 
 
@@ -57,7 +67,7 @@ const Login = () => {
                         <GoogleLogo size={20} className="mr-1.5" />
                         Google
                     </Button>
-                    <Button size="xs" variant="outline" color="secondary" className="w-full">
+                    <Button onClick={handleFacebookLogin} size="xs" variant="outline" color="secondary" className="w-full">
                         <FacebookLogo size={20} className="mr-1.5" />
                         Facebook
                     </Button>
