@@ -33,7 +33,7 @@ const Registration = () => {
             window.alert("Password Not Match")
         }
         else {
-            createUser(name, email, pass)
+            createUser(email, pass, name)
             .then(result => {
                 const loggedUser = result.user;
                 return updateProfile(loggedUser, {
