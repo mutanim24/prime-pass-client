@@ -2,15 +2,21 @@ import { Button, Divider, Icon, Input, Label } from "keep-react";
 import { Envelope, FacebookLogo, GoogleLogo, Lock } from "phosphor-react";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const { googleLogin, facebookLogin, setUser } = useContext(AuthContext);
+    const { loginUser, googleLogin, facebookLogin, setUser } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                setUser(result.user)
-                console.log(result.user);
+                setUser(result.user);
+                navigate(from)
+                // console.log(result.user);
             })
             .catch(err => {
                 console.log(err.message);
@@ -19,22 +25,30 @@ const Login = () => {
 
     const handleFacebookLogin = () => {
         facebookLogin()
-        .then(result => {
-            console.log(result);
-        })
-        .catch(err => {
-            console.log(err.message);
-        })
+            .then(result => {
+                setUser(result.user);
+                console.log(result.user);
+            })
+            .catch(err => {
+                console.log(err.message);
+            });
     }
-
 
     const handleLogin = (e) => {
         e.preventDefault();
         const form = e.target;
         const email = form.email.value;
-        const pass = form.password.value;
-        console.log(email, pass);
-        // Add your login logic here
+        const password = form.password.value;
+
+        loginUser(email, password)
+            .then((result) => {
+                setUser(result.user);
+                console.log(result.user);
+                navigate(from)
+            })
+            .catch((error) => {
+                console.log(error.message);
+            });
     }
 
     return (
@@ -58,7 +72,7 @@ const Login = () => {
                         </Icon>
                     </div>
                 </fieldset>
-                <Button className="!mt-3 block w-full" size="xs" color="secondary" variant="outline">
+                <Button type="submit" className="!mt-3 block w-full" size="xs" color="secondary" variant="outline">
                     Login
                 </Button>
                 <Divider>Or</Divider>
@@ -72,7 +86,9 @@ const Login = () => {
                         Facebook
                     </Button>
                 </div>
-
+                <div className="text-center pt-4">
+                    <p className="text-sm mx-auto">Are you new at Prime Pass <Link to={"/sign-up"} className="text-green-800 underline">Register Now</Link></p>
+                </div>
             </form>
         </div>
     );

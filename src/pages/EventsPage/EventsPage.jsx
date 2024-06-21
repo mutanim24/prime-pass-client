@@ -1,0 +1,21 @@
+import React, { useState } from 'react';
+import EventCard from '../../components/EventCard/EventCard';
+
+const EventsPage = () => {
+    const [events, setEvents] = useState([])
+
+    fetch("https://prime-pass-server.vercel.app/events")
+        .then(result => result.json())
+        .then(data => setEvents(data))
+    return (
+        <div className="grid grid-cols-2 gap-4">
+            {
+                events.map(event => <EventCard
+                    key={event._id}
+                    event={event}></EventCard>)
+            }
+        </div>
+    );
+};
+
+export default EventsPage;

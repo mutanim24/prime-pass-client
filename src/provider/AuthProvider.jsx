@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { app } from "../Firebase/firebase.config";
-import { getAuth, signInWithPopup, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { set } from "firebase/database";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app)
@@ -16,10 +17,17 @@ const AuthProvider = ({ children }) => {
     const facebookProvider = new FacebookAuthProvider();
 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
+    const loginUser = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
+    }
+
     const googleLogin = () => {
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
     const facebookLogin = () => {
@@ -29,7 +37,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
-            // setLoading(false)
+            setLoading(false)
         })
         return () => {
             unsubscribe();
@@ -44,9 +52,12 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         createUser,
+        loginUser,
         googleLogin,
         facebookLogin,
-        logOut
+        logOut,
+        setLoading,
+        loading
 
     }
 

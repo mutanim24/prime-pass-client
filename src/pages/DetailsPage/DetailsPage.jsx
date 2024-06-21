@@ -1,14 +1,14 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Banner from './Banner';
 import { Button, Divider, Steps } from 'keep-react';
-import { Bank, Calendar, CalendarCheck, Clock } from 'phosphor-react';
+import { Bank, Calendar, CalendarCheck, Clock, ClockAfternoon, Ticket } from 'phosphor-react';
 
 const DetailsPage = () => {
     const event = useLoaderData();
     console.log(event);
-    const { _id, image_url, title, description, date, start_time, end_time, venue, ticket_price, event_steps
-    } = event;
+    const { _id, image_url, title, description, date, start_time, end_time, venue, ticket_price, event_steps,
+        available_tickets } = event;
     return (
         <div>
             <Banner image={image_url} title={title}></Banner>
@@ -31,6 +31,7 @@ const DetailsPage = () => {
                 <Steps stepType="number">
                     {
                         event_steps.map((step, index) => <Steps.Item
+                            key={index}
                             className='w-48'
                             numberOfSteps={index + 1}
                             completed
@@ -62,21 +63,36 @@ const DetailsPage = () => {
                         </div>
                         <div>
                             <div className='flex gap-2 font-semibold'>
-                                <Clock size={25}></Clock>
+                                <ClockAfternoon size={25} />
                                 <h3>Ending Time</h3>
                             </div>
                             {end_time}
                         </div>
                     </div>
-                    <div className='w-6/12'>
-                        <div className='flex gap-2 font-semibold'>
-                            <Bank size={25}></Bank>
-                            <h3>Venue</h3>
+                    <div className='w-6/12 space-y-5'>
+                        <div>
+                            <div className='flex gap-2 font-semibold'>
+                                <Bank size={25}></Bank>
+                                <h3>Venue</h3>
+                            </div>
+                            {venue}
                         </div>
-                        {venue}
+                        <div>
+                            <div className='flex gap-2 font-semibold'>
+                                <Ticket size={25} />
+                                <h3>Available Tickets</h3>
+                            </div>
+                            {available_tickets}
+                        </div>
                     </div>
                 </div>
-            <Button className='w-full mt-4' color="success">Book Now</Button>
+                <Link
+                    to="/book-now"
+                    state={{ event }}
+                >
+                    <Button className='w-full mt-4' color="success">Book Now</Button>
+                </Link>
+
             </div>
         </div>
     );

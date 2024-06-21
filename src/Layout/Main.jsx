@@ -1,20 +1,20 @@
 import { Avatar, Button, Divider, Icon, Input, Sidebar } from 'keep-react';
-import { ArchiveTray, Chat, Gear, List, MagnifyingGlass, ShoppingCart, SignIn, SquaresFour, Users } from 'phosphor-react';
+import { ArchiveTray, Article, Chat, Fingerprint, FingerprintSimple, Gear, House, List, MagnifyingGlass, MicrophoneStage, ShoppingCart, SignIn, SquaresFour, UserCircle, Users, UsersThree } from 'phosphor-react';
 import { Link, Outlet } from 'react-router-dom';
 import Footer from '../shared/Footer';
 import { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Main = () => {
-    const {user, logOut} = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     const handleLogout = async () => {
         logOut()
-        .then(result => {
-            console.log(result);
-        })
-        .catch(err => {
-            console.log(err);
-        })
+            .then(result => {
+                console.log(result);
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
     return (
         <div className='flex'>
@@ -41,42 +41,48 @@ const Main = () => {
                     </Sidebar.Header>
                     <Sidebar.Body>
                         <Sidebar.Item>
-                            <SquaresFour size={24} />
+                            <House size={24}></House>
                             <Link to='/'>Home</Link>
                         </Sidebar.Item>
                         <Sidebar.Item>
-                            <ShoppingCart size={24} />
-                            Products
+                            <MicrophoneStage size={24}></MicrophoneStage>
+                            <Link to={'/events'}>Events</Link>
                         </Sidebar.Item>
                         <Sidebar.Item>
-                            <ArchiveTray size={24} />
-                            Download
+                            <UsersThree size={24}></UsersThree>
+                            About Us
                         </Sidebar.Item>
                         <Sidebar.Item>
-                            <Chat size={24} />
-                            <Link to="/login">Login</Link>
+                            <Article size={24}></Article>
+                            <Link>Blog</Link>
                         </Sidebar.Item>
                         <Sidebar.Item>
-                            <Gear size={24} />
-                            <Link to="/sign-up">Sign Up</Link>
+                            <Chat size={24}></Chat>
+                            <Link>Contact </Link>
                         </Sidebar.Item>
-                        <Sidebar.Item className='cursor-pointer' onClick={handleLogout}>
-                            <Users size={24} />
-                            Log Out
-                        </Sidebar.Item>
-                        <Sidebar.Item>
-                            <SignIn size={24} />
-                            Log Out
-                        </Sidebar.Item>
+                        {
+                            user ?
+                                <Sidebar.Item className='cursor-pointer' onClick={handleLogout}>
+                                    <SignIn size={24}></SignIn>
+                                    Log Out
+                                </Sidebar.Item> :
+                                <Sidebar.Item>
+                                    <FingerprintSimple size={24}></FingerprintSimple>
+                                    <Link to="/login">Login</Link>
+                                </Sidebar.Item>
+                        }
+
+
                     </Sidebar.Body>
                     <Divider className="my-3" />
                     <Sidebar.Footer className="flex items-center gap-2">
                         <div>
-                            {user && <Avatar shape="circle" img={user.photoURL} />}
+                            {user ? <Avatar shape="circle" img={user.photoURL} /> : <UserCircle size={35} />
+                        }
                         </div>
                         <div>
-                            {user && <p className="mb-0 text-body-3 font-medium text-metal-600">{user.displayName}</p>}
-                            <p className="text-body-4 font-normal text-metal-400">Web Developer</p>
+                            {user ? <p className="mb-0 text-body-3 font-medium text-metal-600">{user.displayName}</p> : <p>Your Name</p> }
+                            {/* <p className="text-body-4 font-normal text-metal-400">Web Developer</p> */}
                         </div>
                     </Sidebar.Footer>
                 </Sidebar>

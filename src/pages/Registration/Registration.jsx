@@ -3,15 +3,21 @@ import { Envelope, FacebookLogo, GoogleLogo, Lock, Person } from "phosphor-react
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Registration = () => {
-    const {googleLogin, createUser, setUser} = useContext(AuthContext);
+    const { googleLogin, createUser, setUser } = useContext(AuthContext);
+
+    // const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location?.state?.from?.pathname || "/";
 
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
                 setUser(result.user)
-                console.log(result.user);
+                // navigate(from)
+                // console.log(result.user);
             })
             .catch(err => {
                 console.log(err.message);
@@ -23,30 +29,31 @@ const Registration = () => {
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
-        const pass = form.password.value;
+        const password = form.password.value;
         const confirmPass = form.confirm_password.value;
 
-        if(pass.length < 6){
+        if (password.length < 6) {
             window.alert("Password is less than 6 digit")
-        } 
-        else if(pass !== confirmPass){
+        }
+        else if (password !== confirmPass) {
             window.alert("Password Not Match")
         }
         else {
-            createUser(email, pass, name)
-            .then(result => {
-                const loggedUser = result.user;
-                return updateProfile(loggedUser, {
-                    displayName: name
+            createUser(email, password, name)
+                .then(result => {
+                    const loggedUser = result.user;
+                    return updateProfile(loggedUser, {
+                        displayName: name
+                    })
+                    // navigate(from)
                 })
-            })
-            .then(err => {
-                console.log(err.message);
-            })
+                .then(err => {
+                    console.log(err);
+                })
         }
 
-        
-        console.log(name, email, pass, confirmPass);
+
+        console.log(name, email, password, confirmPass);
         // Add your login logic here
     }
 
@@ -103,6 +110,9 @@ const Registration = () => {
                         <FacebookLogo size={20} className="mr-1.5" />
                         Facebook
                     </Button>
+                </div>
+                <div className="text-center pt-4">
+                    <p className="text-sm mx-auto">Have you an account <Link to={"/login"} className="text-green-800 underline">Login Now</Link></p>
                 </div>
             </form>
         </div>
