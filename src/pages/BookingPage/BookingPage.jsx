@@ -4,7 +4,7 @@ import React, { useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const BookingPage = () => {
-const {user} = useContext(AuthPro)
+// const {user} = useContext(AuthPro)
 
     const location = useLocation();
     const { event } = location.state || {};
